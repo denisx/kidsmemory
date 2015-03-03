@@ -474,7 +474,7 @@ $(function(){
 		mainRender( 'click' );
 		toLS( Game );
 	});
-	$('<div class="fork misc-text"><a href="//github.com/denisx/kidsmemory/">Fork me</a></div>').appendTo( 'body' );
+	$('<div class="fork misc-text"><a href="https://github.com/denisx/kidsmemory/">Fork me</a></div>').appendTo( 'body' );
 
 	function renderClear(){
 		root.html('');
