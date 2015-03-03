@@ -1,0 +1,272 @@
+html, body {
+	background: #fff;
+	font-size: 20px;
+}
+.root {
+	text-align: center;
+	margin: 0 10%;
+}
+.root.level-5 {
+	text-align: left;
+}
+
+.block {
+	border: 1px solid #ccc;
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	cursor: pointer;
+	margin: 10px;
+	color: #444;
+	text-shadow: 0 1px 1px #fff;
+	position: relative;
+	box-shadow: 0 0 10px 0 lightblue;
+}
+.block:hover {
+	box-shadow: 0 0 10px 0 lightcoral;
+}
+.block-mini {
+	width: 40px;
+	height: 40px;
+	box-shadow: none;
+}
+.block-mini:hover {
+	box-shadow: none;
+}
+.block.disabled {
+	cursor: default;
+	box-shadow: none;
+}
+.block .text {
+	position: relative;
+	top: 38%;
+	display: block;
+}
+.root.level-7 .block .text {
+	top: 25%;
+	font-size: 40px;
+}
+.root.level-7 .block.str-Back .text {
+	top: 38%;
+	font-size: 20px;
+}
+
+.block-mini .text {
+	top: 30%;
+	font-size: 15px;
+}
+.block.with-imgs .text {
+	top: 15%;
+}
+.block.with-imgs .block-mini .text {
+	top: 30%;
+}
+/*.block.with-imgs .block-mini .text {*/
+	/*top: 30%;*/
+	/*font-size: 15px;*/
+/*}*/
+
+.block.str-Back {
+	display: inline-block;
+	box-shadow: 0 0 10px 0 #aaa;
+}
+.block.str-Back:hover {
+	box-shadow: 0 0 10px 0 #666;
+}
+/*.root.level-8 .block.str-Back {*/
+	/*display: inline-block;*/
+/*}*/
+.block.with-image {
+	border: 0;
+}
+.block.with-image .image {
+	width: 100%;
+	height: 100%;
+}
+.block .block-mini {
+	margin: 5px;
+	position: absolute;
+	bottom: 0;
+}
+.block .block-mini.left {
+	left: 0;
+}
+.block .block-mini.right {
+	right: 0;
+}
+.block.hidden {
+	/*background: none !important;*/
+	/*background-image: url('./img/close.svg') !important;*/
+}
+.block.hidden * {
+	display: none;
+}
+.block .hidden-img {
+	display: none;
+}
+.block.hidden .hidden-img {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: #eee;
+}
+
+.block.done {
+	visibility: hidden;
+}
+
+/*.block.name-Game.level-5 {*/
+	/*position: relative;*/
+	/*left: 0;*/
+/*}*/
+/*.br {*/
+	/*clear: both;*/
+/*}*/
+h1 {
+	text-align: center;
+}
+.level-6 h1,
+.level-7 h1
+{
+	text-align: left;
+	font-size: 20px;
+	color: #aaa;
+}
+.level-7 h1 .name
+{
+	/*padding-left: 10px;*/
+	color: #000;
+}
+.level-7 h1 .name:before {
+	padding: 0 5px 0 0;
+	content: ':';
+	color: #aaa;
+}
+
+
+
+
+.pseudo-link {
+	border-bottom: 1px dashed lightblue;
+	color: royalblue;
+}
+.pseudo-link:hover {
+	border-bottom-color: lightcoral;
+	color: red;
+	cursor: pointer;
+}
+
+a.hidden-link {
+	text-decoration: none;
+}
+
+.selected {
+	font-weight: bold;
+}
+.lang {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	/*width: 150px;*/
+}
+.lang ul,
+.lang li
+{
+	margin: 0;
+	padding: 0;
+}
+.lang li {
+	list-style: none;
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 5px;
+}
+.lang li span {
+	font-size: 20px;
+}
+.fork {
+	font-size: 12px;
+	text-align: right;
+}
+
+.misc-text {
+	padding: 20px 0;
+}
+
+.misc-text,
+.misc-text a
+{
+	color: #aaa;
+}
+.misc-text a:hover {
+	color: gray;
+}
+.all-avatars .block,
+.all-avatars .name
+{
+	display: inline-block;
+	vertical-align: middle;
+
+}
+.all-avatars .name {
+	/*text-align: left;*/
+}
+.all-avatars .list {
+	display: inline-block;
+	width: 300px;
+	text-align: left;
+}
+/*.all-avatars .name:after {*/
+	/*content: '';*/
+	/*display: block;*/
+	/*clear: both;*/
+/*}*/
+.about {
+	text-align: center;
+}
+.time-line {
+	position: relative;
+	background: #eee;
+	height: 5px;
+}
+.time-line .inner {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: lightgreen;
+	height: 5px;
+}
+.time-line .inner.level-1 {
+	width: 15%;
+}
+.time-line .inner.level-2 {
+	width: 25%;
+}
+.time-line .inner.level-3 {
+	width: 40%;
+}
+.time-line .inner.level-4 {
+	width: 55%;
+}
+.time-line .inner.level-5 {
+	width: 70%;
+}
+.time-line .inner.level-6 {
+	width: 85%;
+}
+.time-line .inner.level-7 {
+	width: 100%;
+}
+
+.important {
+	font-weight: bold;
+}
+.social {
+	text-align: center;
+}
+.groups .item {
+	margin-right: 20px;
+}
