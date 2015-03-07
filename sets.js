@@ -167,15 +167,15 @@ var Sets = {
 		avatars_path: 'smeshariki',
 		levels: 1,
 		level_1: [
-			{name: 'smeshariki_Barash', 	src: 'Barash.gif'},
-			{name: 'smeshariki_KarKarych', 	src: 'KarKarych.gif'},
-			{name: 'smeshariki_Kopatych', 	src: 'Kopatych.gif'},
-			{name: 'smeshariki_Krosh', 		src: 'Krosh.gif'},
-			{name: 'smeshariki_Losyash', 	src: 'Losyash.gif'},
-			{name: 'smeshariki_Nysha', 		src: 'Nysha.gif'},
-			{name: 'smeshariki_Pin', 		src: 'Pin.gif'},
-			{name: 'smeshariki_Sovuniya', 	src: 'Sovuniya.gif'},
-			{name: 'smeshariki_Yozh', 		src: 'Yozh.gif'}
+			{name: 'smeshariki_Barash', 	src: 'barash.gif'},
+			{name: 'smeshariki_KarKarych', 	src: 'karkarych.gif'},
+			{name: 'smeshariki_Kopatych', 	src: 'kopatych.gif'},
+			{name: 'smeshariki_Krosh', 		src: 'krosh.gif'},
+			{name: 'smeshariki_Losyash', 	src: 'losyash.gif'},
+			{name: 'smeshariki_Nysha', 		src: 'nysha.gif'},
+			{name: 'smeshariki_Pin', 		src: 'pin.gif'},
+			{name: 'smeshariki_Sovuniya', 	src: 'sovuniya.gif'},
+			{name: 'smeshariki_Yozh', 		src: 'yozh.gif'}
 		]
 	},
 	Barboskiny: {
@@ -260,7 +260,7 @@ var Sets = {
 			{name: 'Mashabear_squirrel', 	src: 'squirrel.png'},
 			{name: 'Mashabear_tiger', 		src: 'tiger.png'},
 			{name: 'Mashabear_wolf', 		src: 'wolf.png'},
-			{name: 'Mashabear_wolf_2', 		src: 'wolf-2.png'},
+			{name: 'Mashabear_wolf_2', 		src: 'wolf-2.png'}
 		]
 
 
