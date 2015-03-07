@@ -79,7 +79,7 @@ $(function(){
 					text = getLangText( elem );
 					writeTimeLine( level );
 					var h1 = $('<h1><span class="text pseudo-link"></span></h1>');
-					h1.find('.text').text( text );
+					h1.find('.text').html( text );
 					h1.appendTo( root );
 					if ( Game.level == 0 ){
 						h1.find('.text').removeClass('pseudo-link');
@@ -93,6 +93,10 @@ $(function(){
 					var name_item = getLangText( elem.name || elem );
 					var block = renderBlock( name, level, (i), text, avatars_path_img, name_item );
 					if ( level == 4 ){
+						var text_len = block.find('.text').text();
+						if ( text_len.indexOf( ' ' ) > -1 ){
+							block.addClass('multi-line');
+						}
 						var get_count = 2;
 						block.append( getLine() );
 						var blocks = getRandomAvatars( elem, get_count, 1 );
@@ -170,7 +174,7 @@ $(function(){
 			block.find('span').html( text );
 		}
 		if ( img ){
-			$('<img class="image" src="'+img+'" alt=""/>').appendTo( block );
+			$('<img class="image" src="' + img + '" alt="' + name_item + '"/>').appendTo( block );
 			block.addClass('with-image');
 		}
 		return block;
@@ -358,7 +362,7 @@ $(function(){
 		root.addClass( 'all-avatars' );
 		var h1_text = Sets.Game.level_4[0];
 		h1_text = getLangText( h1_text );
-		var h1 = $('<h1><span class="pseudo-link"></span></h1>');
+		var h1 = $('<h1><span class="text pseudo-link"></span></h1>');
 		h1.find('.text').html( h1_text );
 		h1.appendTo( root );
 		$('<hr/>').appendTo( root );
@@ -369,7 +373,8 @@ $(function(){
 
 			var h2 = i_obj[i];
 			var h2_name = getLangText( 'group_' + h2.toLowerCase() );
-			$('<h2/>').attr('id',h2).text( h2_name ).appendTo( root );
+			$('<hr/>').appendTo( root );
+			$('<h2/>').attr('id',h2).html( h2_name ).appendTo( root );
 			var item = $('<a class="hidden-link item"/>');
 			item.attr('href', '#' + h2).appendTo( groups_elem );
 			var block = getRandomAvatars(h2, 1, 1).addClass('block-mini');
@@ -378,8 +383,9 @@ $(function(){
 			var j_obj = Sets[ i_obj[i] ];
 			for(var j=1; j<=j_obj.levels; j++){
 				render( i_obj[i], j, true );
-				$('<hr/>').appendTo( root );
 			}
+//			console.log( 'getSite', h2 );
+			getSite( h2 );
 		}
 		$('.block').addClass('disabled');
 	}
@@ -509,6 +515,29 @@ $(function(){
 		h1.find('text').html( getLangText('about_game') );
 		h1.appendTo( root );
 		$('<div class="about"/>').html( getLangText('about') ).appendTo( root );
+		for(var i= 0; i<Sets.Game.level_4.length; i++){
+			getSite( Sets.Game.level_4[i] );
+		}
+	}
+
+	function getSite( name ){
+		if ( !Sets[ name ] ){ return; }
+		var block = $('<div class="about-inner"></div>').appendTo( root );
+		var text = Sets[ name ].site;
+		if ( text != getLangText( text ) ){
+			console.log( 1 );
+			text = getLangText( text );
+			$('<span/>').html( getLangText( 'go_to_site' ) + ' <a href="http://' + text + '">' + text + '</a>' ).appendTo( block );
+		}
+		var text_video = Sets[ name ].site_video;
+		if ( text_video != getLangText( text_video ) ){
+			text_video = getLangText( text_video );
+			$('<span/>').html( ', ' + getLangText( 'watch_video' ) + ' <a href="http://' + text_video + '">' + text_video + '</a>' ).appendTo( block );
+		}
+	}
+
+	function clearSite(){
+		$('.about-inner').remove();
 	}
 
 	function getLine(){
@@ -536,8 +565,10 @@ $(function(){
 			s.push( 'Points: ' + point );
 			soc_text = point;
 			soc_text = getLangText( 'find_pare' ) + '. ' + getLangText( 'my_result' ) + ': ' + soc_text;
+			getSite( Game.avatars_group );
 		}else{
 			soc_text = getLangText( 'find_pare' );
+//			clearSite();
 		}
 		s = s.join(' | ');
 		soc_text += '. #kidsmemory ( ' + s + ' ) ';
@@ -545,24 +576,9 @@ $(function(){
 		$('title').html( soc_text );
 
 		$('.social *').remove();
-		$('<script class="yashare" type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>').appendTo( '.social' );
+		$('<script class="yashare" type="text/javascript" src="https://yastatic.net/share/share.js" charset="utf-8"></script>').appendTo( '.social' );
 		$('<div class="yashare yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div>').appendTo( '.social' );
 
-
-//		$('.social .yashare-auto-init')
-//			.data('yasharetitle', soc_text )
-//			.data('yasharedescription', soc_text );
-//		$('.social .yashare-auto-init').remove();
-//		$('.og-title').attr('content','33');
-//		console.log( soc_text );
-//		if ( Ya && Ya.share ){ // YaShareInstance
-//			var YaShareInstance = new Ya.share({ element: 'yashare' });
-//			console.log( 'DONE', YaShareInstance );
-//			YaShareInstance.updateShareLink('http://api.yandex.ru', 'API');
-//		}
-//		$('.yashare-auto-init').remove();
-//		$('<div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div>')
-//			.appendTo( '.social' );
 	}
 
 	var lang = window.location.hash.replace(/^#([a-z]{2,2}.*$)/,'$1');
@@ -587,7 +603,7 @@ $(function(){
 	};
 	if ( checkLS() ){
 		// dev
-		delete window.localStorage.kidsmemory;
+//		delete window.localStorage.kidsmemory;
 
 		var m = fromLS();
 		if (m.status == 'ok' ){
@@ -598,14 +614,5 @@ $(function(){
 	}
 	mainRender( 'load' );
 
-
-//	var YaShareInstance = new Ya.share({
-//		element: 'ya_share',
-//		l10n: 'en',
-//		theme: 'counter',
-//		elementStyle: {
-//			quickServices: 'vkontakte,facebook,twitter,odnoklassniki,moimir,gplus'.split(',')
-//		}
-//	});
 });
 
