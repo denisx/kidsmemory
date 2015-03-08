@@ -189,7 +189,7 @@ var lang_ru = {
 
 	Winx_aisha: 	'Лейла',
 	Winx_bloom: 	'Блум',
-	Winx_flora: 	'Фрола',
+	Winx_flora: 	'Флора',
 	Winx_musa: 		'Муза',
 	Winx_stella: 	'Стелла',
 	Winx_tecna: 	'Текна',
