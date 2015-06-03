@@ -232,10 +232,11 @@ a.hidden-link {
 .about {
 	text-align: center;
 }
-.about-inner {
+.about-inner,
+.about-text
+{
 	text-align: left;
 }
-
 
 .time-line {
 	position: relative;

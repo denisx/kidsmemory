@@ -72,6 +72,15 @@ $(function(){
 	function render( name, level, show_name ){
 		var m = sets[name]['level_' + level];
 		var avatars_path = getAvatarsPath( name );
+
+		var about_text = $('.about-text');
+		if ( level && name == 'Game' && level == 1 ){
+			about_text.show();
+		}else{
+			about_text.hide();
+		}
+		about_text.find('.text').hide().filter('.' + Game.lang).show();
+
 		if ( m ){
 			m.forEach( function ( elem, i ){
 				var text;
