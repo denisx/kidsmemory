@@ -147,6 +147,10 @@ $(function(){
 			}while ( m.indexOf( n ) != -1 );
 			m.push( n );
 			var str = avatars[ n ];
+			if ( !str ){
+				delete window.localStorage.kidsmemory;
+				window.location.href += '#error';
+			}
 			var avatars_path_img = (avatars_path)? ( avatars_path + str.src ): null;
 			var str_text = ( typeof str == 'object' )? str.src: str;
 			var name_item = getLangText( str.name || str );
@@ -534,7 +538,7 @@ $(function(){
 		var block = $('<div class="about-inner"></div>').appendTo( root );
 		var text = Sets[ name ].site;
 		if ( text != getLangText( text ) ){
-			console.log( 1 );
+//			console.log( 1 );
 			text = getLangText( text );
 			$('<span/>').html( getLangText( 'go_to_site' ) + ' <a href="http://' + text + '">' + text + '</a>' ).appendTo( block );
 		}
